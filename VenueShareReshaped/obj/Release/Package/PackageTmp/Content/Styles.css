@@ -1,0 +1,116 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto|Paytone+One');
+
+/*
+    Grey Background: #EDF5E1
+    Green Navigation: #5CDB95
+    Blue Font: #05386B
+*/
+
+.userBody {
+    background-color: #EDF5E1;
+}
+
+body {
+    background-color: #EDF5E1;
+}
+
+.container {
+    border: solid 1px #5CDB95;
+    justify-content: center;
+    padding:0;
+    background-color:white;
+}
+
+.content {
+    margin: 1em 3em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container h4 {
+    font-family: 'Paytone One', sans-serif;
+    color: #05386B;
+}
+
+.container .loginHead{
+    background-color:#5CDB95;
+    text-align: center;
+}
+
+.container .form-group .label{
+    font-size:18px;
+    font-weight:500;
+}
+
+.loginBtn{
+    background-color:#5CDB95;
+    border:none;
+    color:#05386B;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#loginForm{
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    margin: 0 3em;
+    background-color: #5CDB95;
+}
+
+
+.navbar .collapse .navbar-nav .nav-item .nav-link {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 18px;
+    color: #05386B;
+}
+
+.dropdown .dropdown-menu {
+    background-color: #5CDB95;
+}
+
+.dropdown .dropdown-menu a{
+    color: #05386B;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.dropdown .dropdown-menu a:hover{
+    background-color: #EDF5E1;
+}
+
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.nav-item {
+    margin: 0 1em;
+}
+
+body .user-footer {
+    background-color: #5CDB95;
+    font-family: 'Paytone One', sans-serif;
+    color: #05386B;
+    font-size:15px;
+}
+
+.navbar .user-welcome {
+    font-family: 'Paytone One', sans-serif;
+    color: #05386B;
+    font-size: 15px;
+}
+
+.img-404 {
+    width: 400px;
+    height:auto;
+}
+
+.container .venue-details .jumbo{
+    padding-top:10px;
+    padding-bottom:10px;
+}

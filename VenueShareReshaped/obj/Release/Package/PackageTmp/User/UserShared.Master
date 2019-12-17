@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserShared.master.cs" Inherits="VenueShareReshaped.User.UserShared" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/Styles.css?v=1" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="UserForm" runat="server">
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="../default.aspx" class="navbar-brand">
+                <img src="../Content/VSLogo2.png" alt="Venue Share" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <%if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {%>
+                <div>
+                    <div class="user-welcome">
+                        <span>Welcome </span>
+                        <asp:Label runat="server" ID="CustomerNameLabel"></asp:Label>
+                        <span> (<a href="/User/VenuesBasket.aspx"> Your Basket </a>)</span>
+                    </div>
+                </div>
+                <%}
+                %>
+                <ul class="navbar-nav ml-auto row">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../User/SubmitVenue.aspx">Submit Venue</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn" href="../User/ApprovedVenues.aspx"
+                            id="browseMenu">Browse Venues
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn dropdown-toggle" href="#" id="aboutMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="aboutMenu">
+                            <a class="dropdown-item" href="../User/WhoAreWe.aspx">Who are we?</a>
+                            <a class="dropdown-item" href="../User/ContactUs.aspx">Contact us</a>
+                            <a class="dropdown-item" href="../User/FAQs.aspx">FAQs</a>
+                        </div>
+                    </li>
+
+                    <!--This code block will show or hide login and logout buttons-->
+                    <%if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {%>
+                    <li class="nav-item">
+                        <asp:Button CssClass="nav-link btn dropdown-item" ID="Userlogout" runat="server"
+                            CausesValidation="false" Text="Logout" OnClick="Userlogout_Click" />
+                    </li>
+                    <%}
+                        else
+                        { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn dropdown-toggle" href="#" id="developMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="developMenu">
+                            <a class="dropdown-item" href="../User/LoginOrRegister.aspx">User Login</a>
+                            <a class="dropdown-item" href="../User/LoginOrRegister.aspx">Register</a>
+                            <a class="dropdown-item" href="../Admin/AdminLogin.aspx"
+                                target="_blank">Admin Login</a>
+                        </div>
+                    </li>
+                    <%}
+                    %>
+                    <!--Login and Logout code finished-->
+                </ul>
+            </div>
+        </nav>
+        <!--Content Part-->
+        <div class="content">
+            <asp:ScriptManager AllowCustomErrorsRedirect="true" LoadScriptsBeforeUI="true"
+                    runat="server"></asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <asp:ContentPlaceHolder ID="scriptsPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer class="text-center user-footer mx-5">
+            <span>&copy; All rights reserved to Venue Share <%= DateTime.Now.Year %></span>
+            <span class="mx-2">|</span>
+            <span>Developed by: Karim Saleh</span>
+        </footer>
+    </form>
+</body>
+</html>
